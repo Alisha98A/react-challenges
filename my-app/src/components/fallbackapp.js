@@ -9,6 +9,10 @@ import EventsFunctional from './components/EventsFunctional';
 import EventBinding from './components/EventBinding';
 import ConditionalRenderingClass from './components/ConditionalRenderingClass';
 import ConditionalRenderingFunctional from './components/ConditionalRenderingFunctional';
+import NestingComponents from './components/NestingComponents';
+import MethodsAsPropsParent from './components/MethodAsPropsParent';
+import MethodsAsPropsChild from './components/MethodsAsPropsChild';
+import NavBarForm from "./components/NavBarForm";
 
 function App() {
   return (
@@ -16,6 +20,7 @@ function App() {
       {/* Add your components here */}
       <SideBar />
       <NavBarSimple />
+      <NavBarForm />
       <StatefulGreeting greeting="I am a stateful class component!" name="Mike" />
       <StatefulGreetingWithCallback />
       <StatefulGreetingWithPrevState />
@@ -24,6 +29,9 @@ function App() {
       <EventBinding />
       <ConditionalRenderingClass />
       <ConditionalRenderingFunctional connected={true} />
+      <NestingComponents />
+      <MethodsAsPropsChild />
+      <MethodsAsPropsParent />
     </div>
   );
 }
