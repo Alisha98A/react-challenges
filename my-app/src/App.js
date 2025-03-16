@@ -1,13 +1,12 @@
 import css from './App.module.css';
-import SideBar from './components/Sidebar';
-import StatefulGreeting from './components/StatefulGreeting';
+import NestingComponents from './components/NestingComponents';
+
 
 function App() {
   return (
     <div className={css.App}>
       {/* Add your components here */}
-      <SideBar />
-      <StatefulGreeting greeting="I am a stateful class component!" name="Mike" />
+      <NestingComponents />
     </div>
   );
 }
