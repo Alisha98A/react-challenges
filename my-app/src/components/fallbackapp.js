@@ -13,6 +13,7 @@ import NestingComponents from './components/NestingComponents';
 import MethodsAsPropsParent from './components/MethodAsPropsParent';
 import MethodsAsPropsChild from './components/MethodsAsPropsChild';
 import NavBarForm from "./components/NavBarForm";
+import RenderingLists from "./components/RenderingLists";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
       <NestingComponents />
       <MethodsAsPropsChild />
       <MethodsAsPropsParent />
+      <RenderingLists />
     </div>
   );
 }

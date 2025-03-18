@@ -12,7 +12,7 @@ function RenderingLists() {
     {
       title: "to kill a mockingbird",
       author: "harper lee",
-      pages: 281,
+      pages: 281, 
     },
     {
       title: "the great gatsby",
