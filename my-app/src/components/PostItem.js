@@ -1,15 +1,21 @@
-import React from 'react'
-import styles from "./css/Content.module.css";
+import React from "react"
+import css from "./css/PostItem.module.css";
 
-const PostItem = ({ posts }) => {
-    return posts.map(({ name, title, description, image }, index) => (
-        <div key={index}>
-          <h2>{title}</h2>
-          <p>{name}</p>
-          <img src={image} alt={title} />
-          <p>{description}</p>
-        </div>
-      ));
-  };
+
+function PostItem(props) {
+    return (
+        props.savedPosts.map(post => {
+            // Extra task destructuring 
+            const {title, name, image, description} = post
+            return <div className={css.SearchItem} key={title}>
+                <p>{title}</p>
+                <p>{name}</p>
+                <img src={image} alt="random"/>
+                <p>{description}</p>
+            </div>
+            }
+        )
+    )
+}
 
 export default PostItem
