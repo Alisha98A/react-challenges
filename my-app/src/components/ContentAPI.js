@@ -12,33 +12,43 @@ export class Content extends Component {
         this.state = {
             isLoaded: false,
             posts: [],
-        }
+        };
     }
 
-    componentDidMount() {
-        setTimeout(()=>{
-            this.setState({
-                isLoaded: true,
-                posts: savedPosts,
+    // Fetch images from API instead of using savedPosts
+    fetchImages = () => {
+        axios.get(`https://api.example.com/photos?api_key=${API_KEY}`)
+            .then(response => {
+                this.setState({
+                    isLoaded: true,
+                    posts: response.data, // Assuming response contains the posts
+                });
             })
-        }, 2000)
+            .catch(error => {
+                console.error("Error fetching images:", error);
+                this.setState({ isLoaded: true }); // Avoid infinite loading if API fails
+            });
+    };
+
+    // Call fetchImages() when the component mounts
+    componentDidMount() {
+        this.fetchImages();
     }
 
     handleChange = (e) => {
         const name = e.target.value.toLowerCase();
-        const filteredPosts = savedPosts.filter((post)=>{
+        const filteredPosts = this.state.posts.filter((post) => {
             return post.name.toLowerCase().includes(name);
-        })
-        
+        });
+
         this.setState({
             posts: filteredPosts
-        })
-    }
-    
+        });
+    };
+
     render() {
         return (
             <div className={css.Content}>
-                
                 <div className={css.TitleBar}>
                     <h1>My Photos</h1>
                     <form>
@@ -49,7 +59,7 @@ export class Content extends Component {
                         placeholder='By Author'
                         onChange={(e) => this.handleChange(e)}
                         />
-                        <h4>posts found {this.state.posts.length}</h4>
+                        <h4>Posts Found: {this.state.posts.length}</h4>
                     </form>
                 </div>
 
@@ -61,8 +71,8 @@ export class Content extends Component {
                     }
                 </div>
             </div>
-        )
+        );
     }
 }
 
-export default Content
+export default Content;
