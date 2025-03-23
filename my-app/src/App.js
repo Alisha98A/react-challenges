@@ -1,18 +1,14 @@
-import css from "./App.module.css";
-// import NavBarSimple from "./components/NavBarSimple";
-import Sidebar from "./components/Sidebar";
-import NavBarForm from "./components/NavBarForm";
-import Content from "./components/Content";
+import "./App.css";
+// import StatefulGreetingWithPrevState from "./components/StatefulGreetingWithPrevState";
+// import HooksCounter from "./components/HooksCounter";
+import UseStateWithObjects from "./components/UseStateWithObjects";
 
 function App() {
-  return (
-    <div className={css.App}>
-      {/* Add your components here */}
-      <NavBarForm />
-      <Sidebar />
-      <Content />
-    </div>
-  );
+  return <div className="App">
+      {/* <StatefulGreetingWithPrevState />
+      <HooksCounter /> */}
+      <UseStateWithObjects />
+  </div>;
 }
 
 export default App;
