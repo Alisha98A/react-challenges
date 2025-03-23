@@ -1,13 +1,13 @@
 import "./App.css";
+import ContentHooks from "./components/ContentHooks";
 // import StatefulGreetingWithPrevState from "./components/StatefulGreetingWithPrevState";
 // import HooksCounter from "./components/HooksCounter";
-import UseStateWithObjects from "./components/UseStateWithObjects";
 
 function App() {
   return <div className="App">
       {/* <StatefulGreetingWithPrevState />
       <HooksCounter /> */}
-      <UseStateWithObjects />
+      <ContentHooks />
   </div>;
 }
 
