@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import css from "./css/Content.module.css";
-import { savedPosts } from "../posts.json";
+import {savedPosts} from "../posts.json";
 import PostItem from "./PostItem";
 import Loader from "./Loader";
 
-const ContentHooks = () => {
+function ContentHooks() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [fetchedPosts, setFetchedPosts] = useState([]);
 
-    useEffect(() => {
+    useEffect(()=>{
         setTimeout(() => {
             setIsLoaded(true);
             setFetchedPosts(savedPosts);
-        }, 2000);
+        }, 2000)
     }, []);
-
+    
     const handleChange = (e) => {
         const name = e.target.value.toLowerCase();
-        const filteredPosts = savedPosts.filter((post) =>
-            post.name.toLowerCase().includes(name)
-        );
-
-        setFetchedPosts(filteredPosts);
-    };
+        const filteredPosts = savedPosts.filter((post)=>{
+            return post.name.toLowerCase().includes(name);
+        })
+        
+        setFetchedPosts(filteredPosts)
+    }
 
     return (
         <div className={css.Content}>
@@ -30,21 +30,26 @@ const ContentHooks = () => {
                 <h1>My Photos</h1>
                 <form>
                     <label htmlFor="searchinput">Search</label>
-                    <input
-                        type="search"
-                        id="searchinput"
-                        placeholder="By Author"
-                        onChange={handleChange}
+                    <input 
+                    type="search" 
+                    id="searchinput" 
+                    onChange={(e)=>{handleChange(e)}}
                     />
-                    <h4>Posts found: {fetchedPosts.length}</h4>
+                    <h4>Posts Found: {fetchedPosts.length}</h4>
                 </form>
+                
             </div>
-
             <div className={css.SearchResults}>
-                {isLoaded ? <PostItem savedPosts={fetchedPosts} /> : <Loader />}
+                {
+                    isLoaded ?
+                    <PostItem savedPosts={fetchedPosts} />
+                    : <Loader />
+
+                }  
+    
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default ContentHooks;
+export default ContentHooks
